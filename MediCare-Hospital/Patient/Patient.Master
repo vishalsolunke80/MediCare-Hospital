@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Patient.master.cs" Inherits="MediCare_Hospital.Patient.Patient1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="../CSS/PatientMaster.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <%
+        if (Session["demail"]==null)
+        {
+            Response.Redirect("~/login.aspx");
+        }
+        %>
+
+    <div class="dashboard-container">
+
+    <!-- Header -->
+    <header class="dashboard-header" role="banner">
+        <div class="header-inner">
+            <h2>Patient Dashboard</h2>
+            <p class="welcome">
+                Welcome to CarePlus Hospital,
+                <%= Session["Pname"] != null ? Session["Pname"].ToString() : "Patient" %>
+            </p>
+        </div>
+    </header>
+
+    <!-- Navigation / Modules -->
+    <main class="dashboard-main">
+        <nav class="dashboard-grid" aria-label="Patient actions">
+
+            <a class="card" href="PatientDashboard.aspx">
+                <div class="card-icon">👤</div>
+                <h3>My Profile</h3>
+                <p>View personal details</p>
+            </a>
+
+            <a class="card" href="book_appointment.aspx">
+                <div class="card-icon">📅</div>
+                <h3>Book Appointment</h3>
+                <p>Schedule a visit</p>
+            </a>
+
+            <a class="card" href="appointments.aspx">
+                <div class="card-icon">📋</div>
+                <h3>My Appointments</h3>
+                <p>Check appointment status</p>
+            </a>
+
+            <a class="card logout" href="logout.aspx">
+                <div class="card-icon">🔒</div>
+                <h3>Logout</h3>
+                <p>Sign out safely</p>
+            </a>
+
+        </nav>
+
+        <!-- PAGE CONTENT -->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+
+    </main>
+
+</div>
+
+</body>
+</html>

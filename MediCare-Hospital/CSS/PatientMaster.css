@@ -1,0 +1,169 @@
+﻿/* PatientDashboard.css
+   Responsive, accessible patient dashboard styles
+*/
+
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --accent: #2b7be4;
+    --muted: #6b7280;
+    --danger: #e55353;
+    --radius: 12px;
+    --shadow: 0 6px 18px rgba(28,39,70,0.08);
+    --max-width: 1100px;
+    --gap: 20px;
+    --transition: 200ms cubic-bezier(.2,.9,.2,1);
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html, body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    background: linear-gradient(180deg,#f7fbff 0%,var(--bg) 100%);
+    color: #0b1220;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 40px 16px;
+}
+
+/* Container */
+.dashboard-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* Header */
+.dashboard-header {
+    background: transparent;
+    margin-bottom: 22px;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px;
+}
+
+.dashboard-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: 0.2px;
+    color: #142332;
+}
+
+.welcome {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: var(--gap);
+    align-items: stretch;
+}
+
+/* Card */
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: inherit;
+    transition: transform var(--transition), box-shadow var(--transition);
+    border: 1px solid rgba(15,23,42,0.04);
+    min-height: 140px;
+    overflow: hidden;
+}
+
+    .card:hover, .card:focus {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 40px rgba(16,30,70,0.12);
+        outline: none;
+    }
+
+/* Card content */
+.card-icon {
+    font-size: 1.6rem;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(43,123,228,0.12), rgba(43,123,228,0.06));
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #0f1724;
+}
+
+.card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+/* Logout variant */
+.card.logout {
+    border: 1px solid rgba(229,83,83,0.12);
+}
+
+    .card.logout .card-icon {
+        background: linear-gradient(135deg, rgba(229,83,83,0.12), rgba(229,83,83,0.06));
+    }
+
+    .card.logout h3 {
+        color: var(--danger);
+    }
+
+/* Responsive */
+@media (max-width:1000px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width:520px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+/* Focus states for keyboard users */
+.card:focus {
+    box-shadow: 0 8px 30px rgba(43,123,228,0.14);
+    border-color: rgba(43,123,228,0.16);
+}
+
+/* Utility */
+.hidden {
+    display: none
+}

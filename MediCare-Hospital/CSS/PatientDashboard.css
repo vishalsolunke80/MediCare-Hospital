@@ -1,0 +1,71 @@
+﻿/* Wrapper inside ContentPlaceHolder */
+.profile-container {
+    min-height: calc(100vh - 140px); /* adjust if header height differs */
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center; /* vertical center */
+    padding: 30px;
+    background: #f4f6f8;
+}
+
+/* Profile card */
+.profile-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+    /* Headings */
+    .profile-box h2 {
+        text-align: center;
+        color: #0a4a8a;
+        margin-bottom: 5px;
+    }
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Form fields */
+.profile-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.profile-box input,
+.profile-box select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+    .profile-box input:focus,
+    .profile-box select:focus {
+        border-color: #1d6fdc;
+        outline: none;
+    }
+
+/* Button */
+.profile-box button {
+    width: 100%;
+    padding: 12px;
+    background: #1d6fdc;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+    .profile-box button:hover {
+        background: #155ab5;
+    }

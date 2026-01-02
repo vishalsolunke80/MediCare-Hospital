@@ -1,0 +1,87 @@
+﻿.departments {
+    padding: 60px 0;
+    background: #f9fefe;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    color: #0a4a8a;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.dept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.dept-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+    .dept-card:hover {
+        transform: translateY(-8px);
+    }
+
+    .dept-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+.dept-content {
+    padding: 20px;
+}
+
+    .dept-content h3 {
+        color: #0a4a8a;
+        margin-bottom: 10px;
+    }
+
+    .dept-content p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 12px;
+    }
+
+    .dept-content ul {
+        padding-left: 18px;
+        margin-bottom: 15px;
+    }
+
+        .dept-content ul li {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+    .dept-content button {
+        background: #1d6fdc;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+        .dept-content button:hover {
+            background: #155ab5;
+        }

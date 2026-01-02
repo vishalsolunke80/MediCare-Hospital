@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Doctor.master.cs" Inherits="MediCare_Hospital.Doctor.Doctor" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+        }
+        .sidebar {
+            width: 240px;
+            min-height: 100vh;
+            background: #0d6efd;
+            color: white;
+            position: fixed;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px 20px;
+        }
+        .sidebar a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        .content {
+            margin-left: 240px;
+            padding: 20px;
+        }
+        .topbar {
+            background: white;
+            padding: 12px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    
+     <%
+     if (Session["DoctorEmail"] == null)
+     {
+         Response.Redirect("~/login.aspx");
+     }
+     %>
+    <form runat="server">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h4 class="text-center py-3">Doctor Panel</h4>
+
+            <a href="DoctorDashboard.aspx">🏠 Dashboard</a>
+            <a href="DoctorProfile.aspx">👨‍⚕️ My Profile</a>
+            <a href="Appointments.aspx">📅 Appointments</a>
+            <a href="PatientsList.aspx">🧑‍🤝‍🧑 My Patients</a>
+            
+            <a href="DoctorChangePassword.aspx">🔒 Change Password</a>
+            <a href="../Logout.aspx" class="text-warning">🚪 Logout</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+
+            <!-- Top Bar -->
+            <div class="topbar d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Welcome, Doctor <%=Session["DoctorName"].ToString() %></h5>
+                <asp:Label ID="lblDoctorName" runat="server" CssClass="fw-bold text-primary"></asp:Label>
+            </div>
+
+            <!-- Page Content -->
+            <div class="mt-4">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+
+    </form>
+
+</body>
+</html>
